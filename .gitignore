@@ -1,0 +1,10 @@
+redeye.egg-info/*
+dist/*
+.tox
+.coverage
+*.pyc
+*~
+.noseids
+build/
+.idea/
+*.swp
