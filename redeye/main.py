@@ -11,15 +11,15 @@ def get_vals_for_key(conn, key):
         vals = conn.get(key)
     elif redis_type == 'list':
         count = conn.llen(key)
-        vals = conn.lrange(key, 0, 9)
+        vals = conn.lrange(key, 0, 2)
     elif redis_type == 'set':
         count = conn.scard(key)
-        vals = conn.srandmember(key, 10)
+        vals = conn.srandmember(key, 3)
     elif redis_type == 'zset':
         count = conn.zcard(key)
-        vals = conn.zrange(key, 0, 9)
+        vals = conn.zrange(key, 0, 2)
     else:
-        assert False, "Got unknown type {}".format(redis_type)
+        print "Got unknown type {}".format(redis_type)
     return redis_type, count, vals
 
 
@@ -32,7 +32,7 @@ def check_keys(conn):
 
 
 def main():
-    conn = redis.StrictRedis(host='localhost', port=6379, db=0)
+    conn = redis.StrictRedis(host='localhost', port=6379, db=9)
 
     if '--reset' in sys.argv:
         if conn.connection_pool.connection_kwargs['host'] == 'localhost':
