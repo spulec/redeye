@@ -8,7 +8,7 @@ install_requires = [
 
 setup(
     name='redeye',
-    version='0.0.1',
+    version='0.0.2',
     description='A library to watch Redis',
     author='Steve Pulec',
     author_email='spulec@gmail',
