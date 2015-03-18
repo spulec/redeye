@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 init:
 	@python setup.py develop
-	@pip install -r requirements.txt
+	@pip install -r requirements-dev.txt
 
 test:
 	rm -f .coverage
