@@ -18,6 +18,9 @@ def get_vals_for_key(conn, key):
     elif redis_type == 'zset':
         count = conn.zcard(key)
         vals = conn.zrange(key, 0, 2)
+    elif redis_type == 'hash':
+        count = conn.hlen(key)
+        vals = 'hset'
     else:
         print "Got unknown type {}".format(redis_type)
     return redis_type, count, vals
